@@ -9,7 +9,6 @@ const TabIcon = ({ icon, color, focuses, name}) => {
         className="
         items-center
         justify-center
-        gap-1
         ">
             <Image
             source={icon}
@@ -17,9 +16,6 @@ const TabIcon = ({ icon, color, focuses, name}) => {
             tintColor={color}
             className = "w-6 h-6"
             />
-            <Text className={`${ focuses ? 'font-Psemibold' : 'font-Pmedium'} text-xs`} style={{color: color}}>
-                {name}
-            </Text>
         </View>
     )
 }
@@ -33,7 +29,7 @@ const TabsLayout = () => {
                 tabBarActiveTintColor: 'black',
                 tabBarInactiveTintColor: 'grey',
                 tabBarStyle: {
-                    height: 65,
+                    height: 60,
                     backgroundColor: 'white'
                 }
             }}>
@@ -46,7 +42,6 @@ const TabsLayout = () => {
                         <TabIcon
                         icon={Icons.home}
                         color={color}
-                        name='Home'
                         focuses={focused}/>
                     )
                 }}/>
@@ -59,20 +54,30 @@ const TabsLayout = () => {
                         <TabIcon
                         icon={Icons.search}
                         color={color}
-                        name='Search'
                         focuses={focused}/>
                     )
                 }}/>
                 <Tabs.Screen 
-                name="library"
+                name="publish"
                 options={{
-                    title: 'Library',
+                    title: 'Publish',
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
-                        icon={Icons.library}
+                        icon={Icons.publish}
                         color={color}
-                        name='Library'
+                        focuses={focused}/>
+                    )
+                }}/>
+                <Tabs.Screen 
+                name="notification"
+                options={{
+                    title: 'Notification',
+                    headerShown: false,
+                    tabBarIcon: ({ color, focused }) => (
+                        <TabIcon
+                        icon={Icons.note}
+                        color={color}
                         focuses={focused}/>
                     )
                 }}/>
@@ -83,9 +88,8 @@ const TabsLayout = () => {
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
-                        icon={Icons.settings}
+                        icon={Icons.account}
                         color={color}
-                        name='Settings'
                         focuses={focused}/>
                     )
                 }}/>

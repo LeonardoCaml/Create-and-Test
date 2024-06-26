@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, Alert } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 
 import FormField from "../../components/FormField.jsx"
 import CustomButton from "../../components/CustomButton.jsx"
@@ -17,26 +17,28 @@ const SignIn = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false)
 
-    const submit = async () => {
-        if(form.email === "" || form.password === ""){
-            Alert.alert('Error', 'Please fill in all the fields')
-        }
+    const submit = () => {
+        router.replace('../(tabs)/home')
 
-        setIsSubmitting(true);
+        // if(form.email === "" || form.password === ""){
+        //     Alert.alert('Error', 'Please fill in all the fields')
+        // }
 
-        try {
-            await signIn(form.email, form.password);
-            const result = await getCurrentUser();
-            setUser(result);
-            setIsLogged(true);
+        // setIsSubmitting(true);
 
-            Alert.alert("Success", "User SignIn in successfully")
-            router.replace('../(tabs)/home')
-        }catch(error){
-            Alert.alert('Error', error.message)
-        } finally {
-            setIsSubmitting(false)
-        }
+        // try {
+        //     await signIn(form.email, form.password);
+        //     const result = await getCurrentUser();
+        //     setUser(result);
+        //     setIsLogged(true);
+
+        //     Alert.alert("Success", "User SignIn in successfully")
+        //     router.replace('../(tabs)/home')
+        // }catch(error){
+        //     Alert.alert('Error', error.message)
+        // } finally {
+        //     setIsSubmitting(false)
+        // }
     }
 
     return (
@@ -64,7 +66,7 @@ const SignIn = () => {
                     <CustomButton
                         title='Confirm'
                         handlePress={submit}
-                        containerStyles='my-7 bg-red w-[85vw] rounded-2xl'
+                        containerStyles='my-7 bg-red w-[85vw]'
                         textStyles='text-white font-Pmedium'
                         className='border-none'
                         isLoaded={isSubmitting}

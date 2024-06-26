@@ -1,11 +1,11 @@
 import { View, Text } from "react-native"
 
-const Library = () => {
+const Notification = () => {
     return (
         <View>
-            <Text>Library</Text>
+            <Text>Notification</Text>
         </View>
     )
 }
 
-export default Library
+export default Notification

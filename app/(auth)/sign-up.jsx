@@ -16,23 +16,24 @@ const SignUp = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     const submit = async () => {
-        if(form.username === "" || form.email === "" || form.password == ""){
-            Alert.alert('Error', 'Please fill in all the fields')
-        }
+        router.replace('../(tabs)/home')
+        // if(form.username === "" || form.email === "" || form.password == ""){
+        //     Alert.alert('Error', 'Please fill in all the fields')
+        // }
 
-        setIsSubmitting(true);
+        // setIsSubmitting(true);
 
-        try {
-            const result = await createUser(form.email, form.password, form.username)
-            setUser(result)
-            setIsLogged(true)
+        // try {
+        //     const result = await createUser(form.email, form.password, form.username)
+        //     setUser(result)
+        //     setIsLogged(true)
             
-            router.replace('../(tabs)/home')
-        }catch(error){
-            Alert.alert('Error', error.message)
-        } finally {
-            setIsSubmitting(false)
-        }
+        //     router.replace('../(tabs)/home')
+        // }catch(error){
+        //     Alert.alert('Error', error.message)
+        // } finally {
+        //     setIsSubmitting(false)
+        // }
     }
 
     return (
@@ -67,7 +68,7 @@ const SignUp = () => {
                     <CustomButton
                     title='Confirm'
                     handlePress={submit}
-                    containerStyles='my-7 bg-red w-[85vw] rounded-2xl'
+                    containerStyles='my-7 bg-red w-[85vw]'
                     textStyles='text-white font-Pmedium'
                     className='border-none'
                     isLoaded={isSubmitting}/>

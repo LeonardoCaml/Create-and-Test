@@ -9,7 +9,7 @@ const FormField = ({ title, value, placeholder, handleChangeText, otherStyles, .
 
     return (
         <View className={`w-[85vw] space-y-2 ${otherStyles} `}>
-            <View className='h-16 px-5 justify-center items-center border-2 border-black-200 focus:border-black-200 rounded-2xl flex-row'>
+            <View className='h-16 px-5 justify-center items-center border-2 border-black-200 focus:border-black-200 rounded-lg flex-row'>
                 <TextInput
                 className='flex-1 font-Pmedium text-base'
                 value={value}
